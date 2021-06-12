@@ -2,7 +2,7 @@
 A turn-based where you play as an adventurer tasked with clearing an orc hideout and eliminating the orc boss. 
 
 ## How to Run
-Install [Java](https://www.java.com/en/download/) from the Oracle website if you have not done so already, then dowwnlaod and run **Orc Slayaa.jar**
+Install [Java](https://www.java.com/en/download/) from the Oracle website if you have not done so already, then download and run **Orc Slayaa.jar**
 
 ## Instructions
 A detailed set of game instructions will be displayed after you press START GAME
