@@ -15,7 +15,6 @@ public class MainGUI implements ActionListener {
     private int next = 0;
     private JPanel logPanel;
     private JTextArea text;
-    private JScrollPane scroller;
     //Creating a label and some panels to hold things in
     private JLabel BGLabel;
     private JPanel BGPanel;
@@ -298,18 +297,18 @@ public class MainGUI implements ActionListener {
         mainFrame.remove(text);
 
         //Setting the attack log and scroller so the user can see the damage dealing between player and orc
-        attackLog = new JTextArea(8,20);
+        attackLog = new JTextArea("");
         attackLog.setEditable(false);
         attackLog.setLineWrap(true);
+        attackLog.setWrapStyleWord(true);
         attackLog.setBackground(new Color(150,111,51));
         attackLog.setForeground(new Color(238,227,26));
+        attackLog.setBounds(0, 0, 400, 100);
         attackLog.setFont(new Font("Times New Roman", Font.PLAIN, 25));
 
-        scroller = new JScrollPane(attackLog,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-
         logPanel = new JPanel();
-        logPanel.setBounds(100, 20, 500, 100);
-        logPanel.add(scroller);
+        logPanel.setBounds(400, 20, 400, 100);
+        logPanel.add(attackLog);
         logPanel.setBackground(Color.BLACK);
         logPanel.setVisible(false);
 
@@ -516,19 +515,19 @@ public class MainGUI implements ActionListener {
             market();
         }
         if(e.getSource() == healthPotionBuy && (player.getCoins() - EntityItemCreation.getItem(0).getCost() >= 0)){
-            player.setMaxHP(24);
+            player.setMaxHP(26);
             player.setCoins(EntityItemCreation.getItem(0).getCost());
             coinLabel.setText(player.getCoins() + " coins" );
             playerStats.setText("" + player.toString()); 
         }
         if(e.getSource() == enhancerPotionBuy && (player.getCoins() - EntityItemCreation.getItem(1).getCost() >= 0)){
-            player.setDamage(8);
+            player.setDamage(11);
             player.setCoins(EntityItemCreation.getItem(1).getCost());
             coinLabel.setText(player.getCoins() + " coins" ); 
             playerStats.setText("" + player.toString()); 
         }
         if(e.getSource() == bigHealthPotionBuy && (player.getCoins() - EntityItemCreation.getItem(2).getCost() >= 0)){
-            player.setMaxHP(48);
+            player.setMaxHP(52);
             player.setCoins(EntityItemCreation.getItem(2).getCost());
             coinLabel.setText(player.getCoins() + " coins" ); 
             playerStats.setText("" + player.toString()); 
@@ -540,7 +539,7 @@ public class MainGUI implements ActionListener {
             playerStats.setText("" + player.toString()); 
         }
         if(e.getSource() == eagleEyePotionBuy && (player.getCoins() - EntityItemCreation.getItem(4).getCost() >= 0)){
-            player.setHitAccuracy(0.04);
+            player.setHitAccuracy(0.06);
             player.setCoins(EntityItemCreation.getItem(4).getCost());
             coinLabel.setText(player.getCoins() + " coins" ); 
             playerStats.setText("" + player.toString()); 
@@ -548,54 +547,58 @@ public class MainGUI implements ActionListener {
         //This if statement is used to dictate what happens during a player's and enemy's turn
         if(inBattle){
             if(playerTurn){
+                if(attackLog.getLineCount() > 2){
+                    try{
+                        attackLog.select(0, attackLog.getLineEndOffset(0));
+                        attackLog.replaceSelection(null);
+                    }
+                    catch(Exception g){}
+                }
                 if(e.getSource() == quickAttackButton){
                     int beforeAttack = currentOrc.getCurrentHP();
                     player.quickAttack(currentOrc);
                     int afterAttack = currentOrc.getCurrentHP();
                     int damageDeal = beforeAttack - afterAttack;
-                    attackLog.setText(attackLog.getText() + "\nYou deal " + damageDeal + " damage to the orc.");
+                    attackLog.append("\nYou deal " + damageDeal + " damage to the orc.");
                     orcStats.setText(currentOrc.toString());
-                    playerTurn = false;
-                    text.setVisible(false);
-                    logPanel.setVisible(true);
-                    mainFrame.setVisible(true);
-                    deathCheck();
                 }
                 if(e.getSource() == normalAttackButton){
                     int beforeAttack = currentOrc.getCurrentHP();
                     player.normalAttack(currentOrc);
                     int afterAttack = currentOrc.getCurrentHP();
                     int damageDeal = beforeAttack - afterAttack;
-                    attackLog.setText(attackLog.getText() + "\nYou deal " + damageDeal + " damage to the orc.");
+                    attackLog.append("\nYou deal " + damageDeal + " damage to the orc.");
                     orcStats.setText(currentOrc.toString());
-                    playerTurn = false;
-                    text.setVisible(false);
-                    logPanel.setVisible(true);
-                    mainFrame.setVisible(true);
-                    deathCheck();
                 }
                 if(e.getSource() == heavyAttackButton){
                     int beforeAttack = currentOrc.getCurrentHP();
                     player.heavyAttack(currentOrc);
                     int afterAttack = currentOrc.getCurrentHP();
                     int damageDeal = beforeAttack - afterAttack;
-                    attackLog.setText(attackLog.getText() + "\nYou deal " + damageDeal + " damage to the orc.");
+                    attackLog.append("\nYou deal " + damageDeal + " damage to the orc.");
                     orcStats.setText(currentOrc.toString());
-                    playerTurn = false;
-                    text.setVisible(false);
-                    logPanel.setVisible(true);
-                    mainFrame.setVisible(true);
-                    deathCheck();
                 }
+                playerTurn = false;
+                text.setVisible(false);
+                logPanel.setVisible(true);
+                mainFrame.setVisible(true);
+                deathCheck();
             }
             if(!playerTurn){
+                if(attackLog.getLineCount() > 2){
+                    try{
+                        attackLog.select(0, attackLog.getLineEndOffset(0));
+                        attackLog.replaceSelection(null);
+                    }
+                    catch(Exception g){}
+                }
                 double random = Math.random();
                 if(random < 0.2){
                     int beforeAttack = player.getCurrentHP();
                     currentOrc.quickAttack(player);
                     int afterAttack = player.getCurrentHP();
                     int damageDeal = beforeAttack - afterAttack;
-                    attackLog.setText(attackLog.getText() + "\nThe orc deal " + damageDeal + " damage to you.");
+                    attackLog.append("\nThe orc deal " + damageDeal + " damage to you.");
                     playerStats.setText(player.toString());
                     playerTurn = true;
                     logPanel.setVisible(true);
@@ -607,7 +610,7 @@ public class MainGUI implements ActionListener {
                     currentOrc.heavyAttack(player);
                     int afterAttack = player.getCurrentHP();
                     int damageDeal = beforeAttack - afterAttack;
-                    attackLog.setText(attackLog.getText() + "\nThe orc deal " + damageDeal + " damage to you.");
+                    attackLog.append("\nThe orc deal " + damageDeal + " damage to you.");
                     playerStats.setText(player.toString());
                     playerTurn = true;
                     logPanel.setVisible(true);
@@ -619,13 +622,13 @@ public class MainGUI implements ActionListener {
                     currentOrc.normalAttack(player);
                     int afterAttack = player.getCurrentHP();
                     int damageDeal = beforeAttack - afterAttack;
-                    attackLog.setText(attackLog.getText() + "\nThe orc deal " + damageDeal + " damage to you.");
+                    attackLog.append("\nThe orc deal " + damageDeal + " damage to you.");
                     playerStats.setText(player.toString());
-                    playerTurn = true;
-                    logPanel.setVisible(true);
-                    mainFrame.setVisible(true);
-                    deathCheck();
                 }
+                playerTurn = true;
+                logPanel.setVisible(true);
+                mainFrame.setVisible(true);
+                deathCheck();
             }
         }
         if(e.getSource() == mainMenuButton){
