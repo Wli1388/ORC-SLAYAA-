@@ -8,7 +8,7 @@ public class EntityItemCreation{
         Entity orcSlave = new Orc(40, 5, 5, 0.3,false);
         Entity orcGrunt = new Orc(90, 15, 12, 0.55, false);
         Entity orcBerserker = new Orc(160, 20, 25, 0.75, true);
-        Entity orcBoss = new Orc(250, 50, 18, 0.85, false);
+        Entity orcBoss = new Orc(250, 35, 18, 0.85, false);
 
         enemyList[0] = orcSlave;
         enemyList[1] = orcGrunt;
