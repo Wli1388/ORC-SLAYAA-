@@ -1,6 +1,7 @@
 # ORC-SLAYAA-
 A turn-based where you play as an adventurer tasked with clearing an orc hideout and eliminating the orc boss. 
-All images, with the exception of the fireworks background, are made by me.
+
+Download all the files(src, audio, images) and use a Java IDE to open the java files.
 
 ## Learn More
 
