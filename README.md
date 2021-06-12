@@ -1,6 +1,9 @@
 # ORC-SLAYAA-
 A turn-based where you play as an adventurer tasked with clearing an orc hideout and eliminating the orc boss. 
 
+## How to Run
+Install [Java](https://www.java.com/en/download/) from the Oracle website if you have not done so already, then run the **Orc Slayaa.jar**
+
 ## Instructions
 Download all the files(src, audio, images) and use a Java IDE to open the java files.
 
@@ -15,7 +18,7 @@ During the battle sequences. there will be a log that displays the damage you've
 
 All images, with the exception of the fireworks background, are made by me.
 
-The fireworks background is from: www.pixabay.com 
+The fireworks background is from: [Pixabay](www.pixabay.com)
 
-The music used in this game is from: www.bensound.com
+The music used in this game is from: [Bensound](www.bensound.com)
 
