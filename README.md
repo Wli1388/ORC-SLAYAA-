@@ -5,8 +5,6 @@ A turn-based where you play as an adventurer tasked with clearing an orc hideout
 Install [Java](https://www.java.com/en/download/) from the Oracle website if you have not done so already, then run the **Orc Slayaa.jar**
 
 ## Instructions
-Download all the files(src, audio, images) and use a Java IDE to open the java files.
-
 A detailed set of game instructions will be displayed after you press START GAME
 
 You will then be taken to the market screen where you buy potions to increase your initial stats
@@ -20,5 +18,5 @@ All images, with the exception of the fireworks background, are made by me.
 
 The fireworks background is from: [Pixabay](www.pixabay.com)
 
-The music used in this game is from: [Bensound](www.bensound.com)
+The music used in this game is from: [BenSound](www.bensound.com)
 
