@@ -11,6 +11,8 @@ You will then be taken to the market screen where you buy potions to increase yo
 
 During the battle sequences. there will be a log that displays the damage you've taken and dealing.
 
+After every successful kill, your current HP will recover by 20% of your max HP.
+
 
 ## Learn More
 
