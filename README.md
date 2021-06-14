@@ -16,7 +16,7 @@ During the battle sequences. there will be a log that displays the damage you've
 
 All images, with the exception of the fireworks background, are made by me.
 
-The fireworks background is from: (www.pixabay.com)
+The fireworks background is from:  [Java](www.pixabay.com)
 
-The music used in this game is from: (www.bensound.com)
+The music used in this game is from:  [Java](www.bensound.com)
 
