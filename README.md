@@ -22,3 +22,4 @@ The fireworks background is from: [Pixabay](https://www.pixabay.com)
 
 The music used in this game is from: [BenSound](https://www.bensound.com)
 
+![OrcSlayaaShop](https://github.com/Wli1388/ORC-SLAYAA-/assets/71395703/56fa610f-2e81-4497-924e-abd5093462e0)
