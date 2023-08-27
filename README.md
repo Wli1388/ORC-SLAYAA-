@@ -25,3 +25,5 @@ The music used in this game is from: [BenSound](https://www.bensound.com)
 ## Screenshots of game
 
 ![OrcSlayaaShop](https://github.com/Wli1388/ORC-SLAYAA-/assets/71395703/56fa610f-2e81-4497-924e-abd5093462e0)
+
+![OrcSlayaaBerserker](https://github.com/Wli1388/ORC-SLAYAA-/assets/71395703/24d96108-941a-41ec-b597-d3641ae7d310)
